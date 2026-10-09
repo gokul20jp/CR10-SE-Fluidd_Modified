@@ -1,0 +1,21 @@
+import{c as e,i as t,n,o as r,t as i}from"./_plugin-vue2_normalizer-D0fE0LRQ.js";import{i as a,l as o}from"./lodash-gRr-dLrK.js";import{n as s,t as c}from"./Watch-B9-66_17.js";import{E as l,M as u}from"./index-UdZ9tmzD.js";var d=class extends e(u){data;graphics;options;height;chart;updateOptions=Object.freeze({notMerge:!1});initOptions=Object.freeze({renderer:`canvas`});get flatSurface(){return this.$typedState.mesh.flatSurface}get bedSize(){return this.$typedGetters[`printer/getBedSize`]}onFlatSurfaceChange(e){if(!this.chart)return;let t=e?`legendSelect`:`legendUnSelect`;this.chart.dispatchAction({type:t,name:`mesh_matrix_flat`}),this.chart.dispatchAction({type:t,name:`probed_matrix_flat`})}beforeDestroy(){typeof window>`u`||this.chart?.dispose()}get opts(){let e=this.$typedState.config.uiSettings.theme.isDark,t=e?`rgba(255,255,255,0.65)`:`rgba(0,0,0,0.45)`,n=this.isMobileViewport?14:16,r=e?`rgba(10,10,10,0.90)`:`rgba(255,255,255,0.90)`,i=.1,s=e?`#ffffff`:`#000000`,c={itemWidth:this.isMobileViewport?15:25,itemHeight:this.isMobileViewport?140:280},l={nameTextStyle:{color:t},axisPointer:{lineStyle:{color:s,opacity:.65},label:{margin:16,color:t,fontSize:n}},axisTick:{lineStyle:{color:s,opacity:i}},axisLine:{lineStyle:{color:s,opacity:i,width:2}},axisLabel:{textStyle:{color:t,fontSize:n}},splitLine:{lineStyle:{color:s,opacity:i}}},u=o(this.graphics,e=>{switch(e.type){case`text`:return{...e,style:{...e.style,fill:t,fontSize:n}};default:return}}),d={legend:{show:!1},textStyle:{fontFamily:`Roboto`},darkMode:e,tooltip:{backgroundColor:r,borderColor:r,textStyle:{color:t,fontSize:18},formatter:e=>{let n=``;return e.value&&Array.isArray(e.value)&&(n+=`
+              <div>
+                <span style="display:inline-block;margin-right:4px;border-radius:10px;width:10px;height:10px;background-color:${e.color};"></span>
+                <span style="font-size:16px;color:${t};font-weight:400;margin-left:2px">
+                  ${this.$filters.prettyCase(e.seriesName)}
+                </span>
+                <div style="clear: both"></div>
+                <span style="font-size:16px;color:${t};font-weight:400;margin-left:2px">
+                  x: ${e.value[0].toFixed(4)}
+                </span>
+                <div style="clear: both"></div>
+                <span style="font-size:16px;color:${t};font-weight:400;margin-left:2px">
+                  y: ${e.value[1].toFixed(4)}
+                </span>
+                <div style="clear: both"></div>
+                <span style="font-size:16px;color:${t};font-weight:400;margin-left:2px">
+                  z: ${e.value[2].toFixed(4)}
+                </span>
+                <div style="clear: both"></div>
+              </div>
+              `),n}},visualMap:{type:`continuous`,textStyle:{color:t,fontSize:n},realtime:!0,calculable:!0,show:!0,top:0,right:`auto`,bottom:`auto`,left:0,dimension:2,precision:4,inRange:{color:[`#313695`,`#4575b4`,`#74add1`,`#abd9e9`,`#e0f3f8`,`#ffffbf`,`#fee090`,`#fdae61`,`#f46d43`,`#d73027`,`#a50026`]},...c},xAxis3D:{type:`value`,min:this.bedSize.minX,max:this.bedSize.maxX,...l},yAxis3D:{type:`value`,min:this.bedSize.minY,max:this.bedSize.maxY,...l},zAxis3D:{type:`value`,min:-.5,max:.5,...l},grid3D:{viewControl:{rotateSensitivity:1.8,zoomSensitivity:2,rotateMouseButton:`left`,panMouseButton:`right`}},graphic:u,series:[...this.data]};return a(d,this.options),d}async downloadImage(){if(!this.chart)return;let e=this.chart.getDataURL({type:`png`,backgroundColor:`#262629`}),t=[`bedmesh`,this.$typedState.printer.printer.bed_mesh?.profile_name].filter(e=>e).join(`-`);l(t,e)}};n([t({type:Array,required:!0})],d.prototype,`data`,void 0),n([t({type:Array,default:()=>[]})],d.prototype,`graphics`,void 0),n([t({type:Object,default:()=>{}})],d.prototype,`options`,void 0),n([t({type:[String,Number],default:`100%`})],d.prototype,`height`,void 0),n([s(`chart`)],d.prototype,`chart`,void 0),n([c(`flatSurface`)],d.prototype,`onFlatSurfaceChange`,null),d=n([r({})],d);var f=i(d,function(){var e=this,t=e._self._c;return e._self._setupProxy,t(`div`,{staticClass:`chart`,style:{height:e.$filters.getPixelsString(e.height)}},[t(`e-chart`,{ref:`chart`,attrs:{option:e.opts,"update-options":e.updateOptions,"init-options":e.initOptions,autoresize:``}})],1)},[],!1,null,`3c0f5a58`,null,null).exports;export{f as t};
